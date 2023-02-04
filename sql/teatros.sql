@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `teatros`
 --
-CREATE DATABASE IF NOT EXISTS `teatros` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `teatros` DEFAULT CHARACTER SET utf8mb4;
 USE `teatros`;
 
 -- --------------------------------------------------------
