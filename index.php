@@ -64,8 +64,11 @@ $rs = $sth->fetchAll(PDO::FETCH_ASSOC);
           ON s.teatro=t.idTeatro Where s.teatro=$id_teatro");
           $sth->execute();
           $rs = $sth->fetchAll(PDO::FETCH_ASSOC);
-          $nombre_teatro=$rs[0]['teatro'];
+          if (count($rs)>0){
+            $nombre_teatro=$rs[0]['teatro'];
+
           ?>
+
           <h2> Sesiones <?php echo $nombre_teatro; ?> </h2>
            <table class="table table-striped">
           <thead>
@@ -84,7 +87,7 @@ $rs = $sth->fetchAll(PDO::FETCH_ASSOC);
               <td><?php echo $value['fecha']; ?> </td>
               <td><?php echo $value['hora']; ?> </td>
               <td><?php
-                    if ($totalButacasTeatro-count($rs1)==0){
+                    if (count($rs1)>=$totalButacasTeatro){
                       ?>
                       <img src="img/agotadas.jpeg">
                       <?php
@@ -100,7 +103,13 @@ $rs = $sth->fetchAll(PDO::FETCH_ASSOC);
               <?php }   ?>
             </tr> 
           </tbody>
-        </table>       
+        </table> 
+        <?php
+          }else{
+            echo "<h2>NO HAY SESIONES PARA EL TEATRO SELECCIONADO</h2>";
+          }
+          ?>
+                
         <a href="index.php">Volver a seleccion de Teatro</a>
         <?php
         }
