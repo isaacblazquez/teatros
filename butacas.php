@@ -69,6 +69,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style> 
+        .rojo {   background: red; }
+        .verde {   background: green; } 
+    
+    
+    
+    </style>
+
   </head>
   <body>
     <div class="container text-center">
@@ -84,7 +92,6 @@
                             {
                             echo " <tr>";
                             for($j=1;$j<=$rs0[0]['columnas'];$j++){   ?>
-                                <td>
                                     <?php 
                                         $ocupada = FALSE;
                                         foreach($rs as $value){
@@ -92,8 +99,16 @@
                                                     $ocupada = TRUE;
                                             }
                                         }
-                                        if ($ocupada) {echo "<input type='checkbox' name='butaca-$i.$j' value='$i-$j' disabled checked='checked'>";}
-                                        else{ echo "<input type='checkbox' name='butaca-$i.$j' value='$i-$j' >";}
+                                        if ($ocupada) {
+                                            echo '<td class="rojo">';
+                                            echo "<input type='checkbox' name='butaca-$i.$j' value='$i-$j' disabled checked='checked'>";
+                                            echo '</td>';
+                                        }
+                                        else{ 
+                                            echo '<td class="verde">';
+                                            echo "<input type='checkbox' name='butaca-$i.$j' value='$i-$j' >";
+                                            echo '</td>';
+                                        }
                                     ?> 
                                 </td> 
                                 <?php
