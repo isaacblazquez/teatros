@@ -14,8 +14,6 @@ try {
   echo "Connection failed: " . $e->getMessage();
 }
 
-
-
 //preparar y cegar
 $sth = $conn->prepare("SELECT idTeatro,teatro,imagen FROM teatros");
 $sth->execute();
@@ -34,7 +32,6 @@ $rs = $sth->fetchAll(PDO::FETCH_ASSOC);
   <body>
     <div class="container text-center">
       <div class="row">
-       
         <?php if (!isset($_GET['idTeatro'])){ ?>
           <h1> Trassierra Tickes </h1>
           <table class="table table-striped">
@@ -103,17 +100,11 @@ $rs = $sth->fetchAll(PDO::FETCH_ASSOC);
               <?php }   ?>
             </tr> 
           </tbody>
-        </table>
-        
+        </table>       
         <a href="index.php">Volver a seleccion de Teatro</a>
-
-          
-
         <?php
         }
-        ?>
-        
-       
+        ?>      
       </div>
     
     </div>

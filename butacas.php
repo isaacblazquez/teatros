@@ -76,47 +76,51 @@
   </head>
   <body>
     <div class="container text-center">
-        <div class="row justify-content-center" >
+        <div class="row mb-5" >
             <h2><?php echo $rs[0]['teatro']; ?></h2>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                <input type="hidden" name="sesion" value="<?php echo $idSesion; ?>">
-                <input type="hidden" name="idTeatro" value="<?php echo $id_teatro; ?>">
-                <table>
-                    <tbody>
-                        <?php 
-                        for($i=1;$i<=$rs0[0]['filas'];$i++)
-                            {
-                            echo " <tr>";
-                            for($j=1;$j<=$rs0[0]['columnas'];$j++){   ?>
-                                    <?php 
-                                        $ocupada = FALSE;
-                                        foreach($rs as $value){
-                                        if (($value['fila']==$i)&&($value['columna']==$j)){
-                                                    $ocupada = TRUE;
+            <div class="col-md-4 mx-auto p-4">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                    <input type="hidden" name="sesion" value="<?php echo $idSesion; ?>">
+                    <input type="hidden" name="idTeatro" value="<?php echo $id_teatro; ?>">
+                    <table>
+                        <tbody>
+                            <?php 
+                            for($i=1;$i<=$rs0[0]['filas'];$i++)
+                                {
+                                echo " <tr>";
+                                for($j=1;$j<=$rs0[0]['columnas'];$j++){   ?>
+                                        <?php 
+                                            $ocupada = FALSE;
+                                            foreach($rs as $value){
+                                            if (($value['fila']==$i)&&($value['columna']==$j)){
+                                                        $ocupada = TRUE;
+                                                }
                                             }
-                                        }
-                                        if ($ocupada) {
-                                            echo '<td class="rojo">';
-                                            echo "<input type='checkbox' name='butaca-$i.$j' value='$i-$j' disabled checked='checked'>";
-                                            echo '</td>';
-                                        }
-                                        else{ 
-                                            echo '<td class="verde">';
-                                            echo "<input type='checkbox' name='butaca-$i.$j' value='$i-$j' >";
-                                            echo '</td>';
-                                        }
-                                    ?> 
-                                </td> 
-                                <?php
-                            }
-                            echo " </tr>";
-                            }
-                        ?>
-                    </tbody>
-                </table>
-                <input type="reset" name="cancelar" value="cancelar">
-                <input type="submit" name="comprar" value="comprar">
-            </form>
+                                            if ($ocupada) {
+                                                echo '<td class="rojo">';
+                                                echo "<input type='checkbox' name='butaca-$i.$j' value='$i-$j' disabled checked='checked'>";
+                                                echo '</td>';
+                                            }
+                                            else{ 
+                                                echo '<td class="verde">';
+                                                echo "<input type='checkbox' name='butaca-$i.$j' value='$i-$j' >";
+                                                echo '</td>';
+                                            }
+                                        ?> 
+                                    </td> 
+                                    <?php
+                                }
+                                echo " </tr>";
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                    <div class="mt-5">
+                        <input type="reset" name="cancelar" value="cancelar seleccion">
+                        <input type="submit" name="comprar" value="comprar seleccionadas">
+                    </div>
+                </form>
+            </div>
         </div>
         <a href="index.php?idTeatro=<?php echo $id_teatro; ?>">
         Volver seleccion de sesiones
