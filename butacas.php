@@ -118,23 +118,4 @@
 
 <?php
 
-
-// for($i=1;$i<=$rs0[0]['filas'];$i++){
-//     echo "i = ".$i."</br>";
-//     for($j=1;$j<=$rs0[0]['columnas'];$j++){
-//         echo "i-j = ".$i."-".$j."</br>";
-//                 $ocupada = FALSE;
-                
-//                 foreach($rs as $value){
-//                  echo "COMPARO asiento en fila: ".$value['fila']."columna: ".$value['columna']." CON i=".$i." j=".$j;
-//                   if (($value['fila']==$i)&&($value['columna']==$j)){
-//                             $ocupada = TRUE;
-//                     }
-
-//                 }
-//                     if ($ocupada) {echo "<input type='checkbox' name='butaca' value='' >";}
-//                     else{ echo "<input type='checkbox' name='butaca' value='' disabled checked='checked'>";}
-           
-//     }
-// }
 ?>
